@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Foldit:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+    color-scheme: dark;
+
+}
+
+body {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.special {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Foldit', sans-serif;
+}
+
+h1 {
+    font-family: 'Nova Square', sans-serif;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+}
