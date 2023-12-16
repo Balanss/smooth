@@ -1,4 +1,8 @@
 
+import BikeCanvas from "./Bike";
 import StarsCanvas from "./Stars";
 
-export { StarsCanvas };
+
+
+
+export { BikeCanvas, StarsCanvas };

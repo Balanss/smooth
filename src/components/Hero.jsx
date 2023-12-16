@@ -1,34 +1,32 @@
 /* eslint-disable no-unused-vars */
-
-import {motion} from 'framer-motion'
 import {style} from "../style"
+import logo from "../assets/headerLogo.jpg"
+
 
 export default function Hero() {
   return (
     <section className='relative w-full h-screen '>
- <div className={`absolute inset-0 top-[120px] max-w-7xl flex mx-auto flex-row items-start gap-5`}>
-   <div className='flex flex-col justify-center items-center mt-5'>
- <div className='w-5 h-5 rounded-full bg-[#915eff]'/>
- <div className='w-1 sm:h-80 h-40 violet-gradient'/>
-     </div>
- 
-     <div>
+ <div className={`absolute inset-0 top-[120px] lg:max-w-7xl flex mx-auto flex-row items-start gap-5`}>
+     <section className=" xl:flex gap-20  justify-start md:flex md:flex-col md:items-center lg:w-[80vw] ">
+
+     <div className="xs:block">
        <h1 className={`${style.heroHeadText} text-white`}>
-       Lorem ipsum  <span className='text-[#915eff]'> dolor </span>
-      
+       Shreyaan Daga 
        </h1>
-       <p className={` ${style.heroSubText} text-white-100 mt-2`} >
-       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+       <p className={` ${style.heroSubText}  text-white-100 mt-2 `} >
+       CEO and Founder of OLL  (Online Live Learning)
          </p>
      </div>
+
+     <div>
+<img src={logo} alt="logo" className=" xs:w-[150px] lg:w-[200px] lg:h-[200px] m-auto xs:mt-10 sm:mt-0  rounded-full gradient green-pink-gradient xs:h-[150px]"/>
+     </div>
+     </section>
+
    
  
  </div>
-   <div className='absolute xs:bottom-10 bottom-32 flex w-full justify-center items-center '>
- <a href='#HorizonalText'>
-
- </a>
-   </div>
+ 
     </section>
    )
 }

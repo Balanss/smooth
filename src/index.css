@@ -36,3 +36,8 @@ h1 {
 p {
     font-family: 'Inter', sans-serif;
 }
+
+.canvasWidth {
+    width: 100vw;
+    /* Set the width as needed */
+}
