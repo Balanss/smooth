@@ -4,19 +4,17 @@ import im2 from "../assets/image/im2.png";
 import im3 from "../assets/image/im3.png";
 import im4 from "../assets/image/im4.png";
 import im5 from "../assets/image/im5.png";
+import im6 from "../assets/image/im6.png";
+import skill from "../assets/image/skill.jpg";
 
 
 
 export const navLinks = [
   {
-    id: "about",
-    title: "About",
+    id: "Life Journey",
+    title: "Life Journey",
   },
 
-  {
-    id: 'Bike',
-    title: 'Bike',
-  }
 
 ];
 
@@ -68,7 +66,7 @@ const experiences = [
   {
     title: "30 lakhs for 5% equity with Vineeta and Piyush",
     company_name: "to impact 1 billion learners",
-    icon: im5,
+    icon: im6,
     iconBg: "#383E56",
     date: "Jan 2023 - Present",
     points: [
@@ -77,31 +75,15 @@ const experiences = [
   }
 ];
 
-const testimonials = [
+const skillTitans = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
+      "Skill Titans is extending a global call to all schools. OLL urges educational institutions worldwide to embrace and integrate the Skill Titans program into their curriculum. This initiative is designed to empower the next generation of entrepreneurs and foster young innovators on a global scale.",
+    title: "Launch of Skill Titans Entrepreneurial Competition",
+    icon: skill
 
   },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
 
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-
-  },
 ];
 
 const projects = [
@@ -170,4 +152,4 @@ const projects = [
   },
 ];
 
-export { experiences, testimonials, projects };
+export { experiences, skillTitans, projects };

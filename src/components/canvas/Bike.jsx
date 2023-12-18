@@ -44,7 +44,7 @@ const Bike = () => {
       <primitive
        ref={bikeRef}
       scale={ isMobile ? 2 :4}
-      position={[-17,-4.5,-4]}
+      position={[-25,-4.5,-10]}
       object={bike.scene}
       
       />
@@ -59,7 +59,7 @@ const BikeCanvas = () => {
 
   return(
     <motion.div
-    className='relative w-[100vw] h-[390px]'
+    className='relative w-[100vw] m-auto  h-[390px]'
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 2 ,delay:0.5 }}

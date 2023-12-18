@@ -33,9 +33,9 @@ return (
           <About />  
           </div >
 
-          <div className='relative z-0'>
+          {/* <div className='relative z-0'>
           <Footer /> 
-          </div>
+          </div> */}
 
           
       </div>
