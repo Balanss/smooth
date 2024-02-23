@@ -41,3 +41,15 @@ p {
     width: 100vw;
     /* Set the width as needed */
 }
+
+
+.Toastify__toast-container--top-right {
+    bottom: 0 !important;
+    top: unset !important;
+
+}
+
+
+.vertical-timeline::before {
+    top: 100px !important;
+}

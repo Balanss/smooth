@@ -1,27 +1,31 @@
-import React from 'react'
-import { BikeCanvas } from './canvas'
-import Loader from './Loader'
-import { Suspense } from 'react'
-import SkillTitans from './SkillTitans'
+import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
+import {style} from "../style"
+import {useNavigate} from 'react-router-dom'
+import { motion } from 'framer-motion';
+
 
 
 
 export default function Footer() {
-  return (
-    <div className='relative w-full h-[500px] mx-auto bg-primary'>
-      <div className=''>
-      <SkillTitans />
-      </div>
 
-          <div className=' h-[390px] xs:hidden xl:block absolute top-0  m-auto '>
-          
-          <Suspense fallback={<Loader />}>
-                    <BikeCanvas />
-                    
-                </Suspense>
-              
-          </div>
-                    
+    const navigate = useNavigate()
+
+  const handleGo = () => {
+    navigate('/contact')
+  }
+
+
+  return (
+    <div className='relative w-full text-center p-5  mx-auto bg-primary flex flex-col gap-5 items-center justify-center'>
+      <h1 className={`${style.heroHeadText} !text-xl mt-10 !font-light`}>Wish to Contact Shreyaan Daga?</h1>
+      <motion.button className='w-1/3 p-2  bg-secondary text-white'   whileHover={{ scale: 1.1 }}
+      transition={{ type: "spring", stiffness: 200, damping: 20 }} onClick={handleGo}>Contact</motion.button>
+
     </div>
-  )
+  );
+
+
 }

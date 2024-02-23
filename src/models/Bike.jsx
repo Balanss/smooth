@@ -2,6 +2,7 @@ import { useEffect, useRef,useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useAnimations, useGLTF } from "@react-three/drei";
 import bike from "../assets/3d/bike.glb";
+import * as THREE from "three";
 
 // 3D Model from: https://sketchfab.com/3d-models/phoenix-bike-844ba0cf144a413ea92c779f18912042
 export function Bike() {
@@ -16,60 +17,62 @@ export function Bike() {
   // Get access to the animations for the bike
   const { actions } = useAnimations(animations, bikeRef);
 
-
-useEffect(() => {
-    if (isPlaying){
-        actions["Take 001"].play();
-    }
-}, []);
-
-
-
-
-
-
-  const [shouldAnimate, setShouldAnimate] = useState(true);
-  const [shouldAnimate2, setShouldAnimate2] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
   const [shouldPause, setShouldPause] = useState(false);
 
 
-  
+useEffect(() => {
+  let timeoutId = null;
+  window.scrollTo(0, 0);
+  const handleScroll = () => {
+    // Clear any existing timeout
+    if (timeoutId !== null) {
+      clearTimeout(timeoutId);
+    }
 
-  useEffect(() => {
-    setTimeout(() => {
+    // Start the animation only if the user has scrolled more than 100px
+    if (window.scrollY > 100) {
+      setShouldAnimate(true);
+
+      // Set a timeout to stop the animation after 2 seconds of no scrolling
+      timeoutId = setTimeout(() => {
+        setShouldAnimate(false);
+        const action = actions["Take 001"];
+        action.stop();
+      }, 800);
+    }
+  };
+
+  window.addEventListener('wheel', handleScroll);
+
+  return () => {
+    window.removeEventListener('wheel', handleScroll);
+
+    // Clear the timeout when the component unmounts
+    if (timeoutId !== null) {
+      clearTimeout(timeoutId);
+
+    }
+  };
+}, []);
+
+useFrame((state, delta) => {
+  if (shouldAnimate) {
+    bikeRef.current.position.x -= 0.08 * delta;
+    bikeRef.current.position.y += 0.012 * delta;
+    const action = actions["Take 001"];
+    action.play();
+    
+
+    // Stop the animation when the bike is out of screen view
+    if (bikeRef.current.position.x  < 1) {
       setShouldAnimate(false);
-      setShouldAnimate2(true);
-    }, 15000);
-
-    if (!shouldAnimate2 && shouldPause){
-      setTimeout(() => {
-        actions["Take 001"].paused = true;
-       
-    }
-    , 10000);
-    }
-
-  }, [isPlaying, actions, shouldAnimate, shouldAnimate2]);
-
-
-
-  useFrame((state, delta) => {
-    if ( shouldAnimate) {
-      bikeRef.current.position.x -= 0.04 * delta;
-      bikeRef.current.position.y += 0.0052 * delta;
-      
-    }  if ( shouldAnimate2) {
-     setTimeout(() => {
-      bikeRef.current.position.x -= 0.04 * delta;
-      bikeRef.current.position.y += 0.0052 * delta;
-    setTimeout(() => {
       setShouldPause(true);
-      setShouldAnimate2(false);
-    }, 10000)
-     }, 5000);
+      const action = actions["Take 001"];
+      action.stop();
     }
-  });
-
+  }
+});
 
   return (
     // to create and display 3D objects

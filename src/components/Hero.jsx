@@ -1,15 +1,17 @@
 /* eslint-disable no-unused-vars */
 import {style} from "../style"
 import logo from "../assets/headerLogo.jpg"
+import Intro from "./Intro"
 
 
 export default function Hero() {
   return (
+
     <section className='relative w-full h-screen '>
- <div className={`absolute inset-0 top-[120px] lg:max-w-7xl flex mx-auto flex-row items-start gap-5`}>
+ <div className={`absolute inset-0 top-[120px] lg:max-w-7xl xl:flex mx-auto flex-row items-start gap-5`}>
      <section className=" xl:flex gap-20  justify-start md:flex md:flex-col md:items-center lg:w-[80vw] ">
 
-     <div className="xs:block">
+     <div className="xs:block text-center">
        <h1 className={`${style.heroHeadText} text-white`}>
        Shreyaan Daga 
        </h1>

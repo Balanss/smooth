@@ -10,7 +10,7 @@ import { textVariant } from "../utils/Motion"
 import { experiences } from "../constants/index"
 import { Bike, Sunrise } from "../models"
 import { Canvas } from "@react-three/fiber"
-import { Suspense } from "react"
+import { Suspense,useState,useEffect } from "react"
 import Loader from "./Loader"
 import { Tilt } from "react-tilt";
 
@@ -20,7 +20,7 @@ import { Tilt } from "react-tilt";
 const ExperienceCard = ({experience}) => (
 
     <VerticalTimelineElement
-    className="vertical-timeline-element--work xs:w-[80vw] lg:w-auto"
+    className="vertical-timeline-element--work phones:!mt-[10vh]"
     contentStyle={{ background: '#1d1836', color: '#fff' }}
     contentArrowStyle={{ borderRight: '7px solid #232631' }}
     iconStyle={{background: experience.iconBg}}
@@ -44,20 +44,33 @@ const ExperienceCard = ({experience}) => (
   
 
 const Experience = () => {
+
+
+
+  const [isMobile,setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+  
+    // Set initial value
+    handleResize();
+  
+    // Update value when window size changes
+    window.addEventListener('resize', handleResize);
+  
+    // Clean up event listener when component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
-    <motion.div variants={textVariant()}>
-    {/* <p className={style.sectionSubText}>Shreyaan Daga </p> */}
-    <h1 className={style.sectionHeadText}>Life Journey</h1>
-      </motion.div>
-
-      <div className='mt-20 flex flex-col mb-10'>
-         
-            
+      <div className=' flex flex-col mb-10 phones:pt-40'>    
         <VerticalTimeline>
           {experiences.map((experience, index) => (
-
-           
             <ExperienceCard
               key={`experience-${index}`}
               experience={experience}
@@ -66,16 +79,14 @@ const Experience = () => {
         </VerticalTimeline>
       </div>
       
-      <div className="inset-0 fixed w-screen min-h-[200vh] z-[-10000000000]">
-        <Canvas camera={{ near: 0.1, far: 1000 }} >
+      <motion.div className="inset-0 fixed w-screen min-h-[200vh] z-[-10000000000]" >
+        <Canvas camera={{  near: 0.1, far: 1000}} gl={{ antialias: false }}  dpr={[0, 1]}>
         <Suspense fallback={<Loader />}>
           <Sunrise />
-      
-          <Bike />
-         
+         {isMobile? null : <Bike />}
         </Suspense>
       </Canvas>
-      </div>
+      </motion.div>
       
     </>
   )
