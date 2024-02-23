@@ -1,13 +1,12 @@
 
-import im1 from "../assets/image/im1.png";
-import im2 from "../assets/image/im2.png";
-import im3 from "../assets/image/im3.png";
-import im4 from "../assets/image/im4.png";
-import im5 from "../assets/image/im5.png";
-import im6 from "../assets/image/im6.png";
-import im7 from "../assets/image/im7.png";
-import skill from "../assets/image/skill.jpg";
-import Contact from "../components/Contact";
+import im1 from "../assets/image/im1.webp";
+import im2 from "../assets/image/im2.webp";
+import im3 from "../assets/image/im3.webp";
+import im4 from "../assets/image/im4.webp";
+import im5 from "../assets/image/im5.webp";
+import im6 from "../assets/image/im6.webp";
+import im7 from "../assets/image/im7.webp";
+
 
 
 
@@ -119,16 +118,7 @@ const experiences = [
 
 ];
 
-const skillTitans = [
-  {
-    testimonial:
-      "Skill Titans is extending a global call to all schools. OLL urges educational institutions worldwide to embrace and integrate the Skill Titans program into their curriculum. This initiative is designed to empower the next generation of entrepreneurs and foster young innovators on a global scale.",
-    title: "Launch of Skill Titans Entrepreneurial Competition",
-    icon: skill
 
-  },
-
-];
 
 
 
