@@ -27,13 +27,13 @@ const ExperienceCard = ({experience}) => (
     icon={   <div  className="flex justify-center items-center w-full h-full">  <img src={experience.icon} alt="icon" className="rounded-full "/></div>} > 
   <div>
       <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
-      <p className="text-secondary text-[16px] font-semibold mt-0">{experience.company_name}</p>
+      <p className="text-secondary text-[16px] font-[400] mt-0">{experience.company_name}</p>
     </div>
     
 
     <ul className="mt-5 list-disc ml-5 space-y-2">
     {experience.points.map((desc,index)=>(
-      <li key={`expierence-point-${index}`} className="text-white-100 text-[14px] pl-1 tracking-wider font-semibold">{desc}</li>
+      <li key={`expierence-point-${index}`} className="text-white-100 text-[14px] pl-1 tracking-wider font-[300]">{desc}</li>
     ))}
     </ul>
    
@@ -80,7 +80,7 @@ const Experience = () => {
       </div>
       
       <motion.div className="inset-0 fixed w-screen min-h-[200vh] z-[-10000000000]" >
-        <Canvas camera={{  near: 0.1, far: 1000}} gl={{ antialias: false }}  dpr={[0, 1]}>
+        <Canvas camera={{  near: 0.1, far: 1000}} gl={{ antialias: false, stencil:false,powerPreference:'high-performance' }}  dpr={[0, 1]}>
         <Suspense fallback={<Loader />}>
           <Sunrise />
          {isMobile? null : <Bike />}

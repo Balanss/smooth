@@ -16,8 +16,7 @@ export function Sunrise() {
   // Get access to the animations for the bird
   const { actions } = useAnimations(animations, birdRef);
 
-
-useEffect(() => {
+  useEffect(() => {
     if (isPlaying){
         actions["Animation"].play();
 
@@ -32,19 +31,14 @@ useEffect(() => {
 
 
 
-
-
   return (
     // to create and display 3D objects
       <mesh ref={birdRef} position={[10, 1, 3]}>
-        <hemisphereLight intensity={20.15}  groundColor={'yellow'}/>
-      <pointLight intensity={10}/>
       <directionalLight position={[-1,10,6]} intensity={10}/>
-      <ambientLight intensity={2.5}/>
       <spotLight position={[-20,50,10]} intensity={2} angle={0.12} penumbra={1} castShadow shadow-mapSize={1024}/>
       <primitive object={scene} 
       scale={1}
-      position={[0, -4 ,6]}
+      position={[0, -4 ,5]}
       rotation={[-0.0, -1.50 , 0.02]}  />   
     </mesh>  
 
